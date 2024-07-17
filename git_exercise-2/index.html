@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Contributing - Zillona Org</title>
+        <title>Advanced Git Exercise - Zillona Org</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="..">Zillona Org</a>
                 <!-- Expander button -->
@@ -70,12 +70,88 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#advanced-git-exercise" class="nav-link">Advanced Git Exercise</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#configure-git-locally" class="nav-link">Configure git locally</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#branching-strategy" class="nav-link">Branching strategy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#commit-messages" class="nav-link">Commit Messages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>foo</p></div>
+<h1 id="advanced-git-exercise">Advanced Git Exercise</h1>
+<h2 id="configure-git-locally">Configure git locally</h2>
+<p>Set gits "core" editor to your editor of choice. I have chosen Vim below.
+<code>git config --global core.editor "vim"</code></p>
+<h3 id="if-you-are-using-vim-you-can-add-the-below-lines-to-your-vimrc-file-to">If you are using Vim you can add the below lines to your .vimrc file to</h3>
+<p>enforce the commit conventions discussed in a later section.</p>
+<pre><code>&quot; Force the cursor onto a new line after 80 characters
+set textwidth=80
+&quot; However, in Git commit messages, let’s make it 72 characters
+autocmd FileType gitcommit set textwidth=72
+&quot; Colour the 81st (or 73rd) column so that we don’t type over our limit
+set colorcolumn=+1
+&quot; In Git commit messages, also colour the 51st column (for titles)
+autocmd FileType gitcommit set colorcolumn+=51
+</code></pre>
+<h2 id="branching-strategy">Branching strategy</h2>
+<p>We use a parallel 'develop' branch for staging changes and annotated tags for 
+<a href="https://semver.org/spec/v2.0.0.html">semantic versioning</a></p>
+<p><code>git tag -a v1.0.1 &lt;commit&gt;</code></p>
+<p>Follow the commit message conventions outlined below to annotate your tags.</p>
+<h2 id="commit-messages">Commit Messages</h2>
+<p>An excellent source of insight into what commit messages are for and why commit
+conventions matter. https://cbea.ms/git-commit/</p>
+<p>We follow a simplified commit convention based off the popular Angular commit 
+<a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit">convention</a>
+https://www.conventionalcommits.org/en/v1.0.0/</p>
+<p>From the root of this repository run the following command to configure this
+projects commit template.
+<code>git config --global commit.template ${PWD}/.git-commit-template</code></p>
+<p>Here is a lengthy example of a properly formatted commit message</p>
+<pre><code>feat(docs): Add 50 char subject in imperative mood
+
+More detailed explanatory text, if necessary. Wrap it to about 72
+characters or so. In some contexts, the first line is treated as the
+subject of the commit and the rest of the text as the body. The
+blank line separating the summary from the body is critical (unless
+you omit the body entirely); various tools like `log`, `shortlog`
+and `rebase` can get confused if you run the two together.
+
+Explain the problem that this commit is solving. Focus on why you
+are making this change as opposed to how (the code explains that).
+Are there side effects or other unintuitive consequences of this
+change? Here's the place to explain them.
+
+Further paragraphs come after blank lines.
+
+ - Bullet points are okay, too
+
+ - Typically a hyphen or asterisk is used for the bullet, preceded
+   by a single space, with blank lines in between, but conventions
+   vary here
+
+If you use an issue tracker, put references to them at the bottom,
+like this:
+
+Resolves: #123
+See also: #456, #789
+</code></pre>
+<p>Configure <a href="https://commitlint.js.org/">commitlint</a> locally or as a commit hook.</p>
+<p>https://github.com/semantic-release/semantic-release</p></div>
             </div>
         </div>
 

@@ -81,16 +81,43 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="beginners-git-lifecycle-exercise">Beginners Git Lifecycle Exercise</h1>
-<p>TODO: </p>
+<h3 id="get-hands-on-with-git">Get hands on with Git</h3>
+<p>This exercise will guide you through basic Git commands for version control.</p>
+<h3 id="task">Task</h3>
 <ul>
-<li>Walk through <code>git clone</code>, <code>git branch</code></li>
+<li><strong>Clone a Repository:</strong></li>
 </ul>
-<p>repositories</p>
+<p>Find a repository on GitHub you'd like to work with. Copy its HTTPS URL. In your terminal, navigate to where you want to store the project and run: <code>git clone &lt;repository_url&gt;</code></p>
 <ul>
-<li>Clone and make a branch of this repository</li>
-<li>Explain <code>git add</code>, <code>git commit</code> and <code>git push</code> commands</li>
-<li>Review branch in web browser and potentially create pull request</li>
-</ul></div>
+<li><strong>Create a New Branch:</strong></li>
+</ul>
+<p>It's good practice to create a new branch for your work. Navigate into the cloned repository: <code>cd &lt;repository_name&gt;</code>. Then create a branch: <code>git checkout -b &lt;new_branch_name&gt;</code>. (If theres an existing branch, you can switch to it using: <code>git checkout &lt;existing_branch_name&gt;</code>.)</p>
+<ul>
+<li><strong>Make Changes:</strong></li>
+</ul>
+<p>Open the project files in your code editor and make some modifications. Save your changes.</p>
+<ul>
+<li><strong>Stage Changes:</strong></li>
+</ul>
+<p>Tell Git to track your changes: <code>git add &lt;file_name&gt;</code> (for specific files) or <code>git add .</code> (to stage all changes).</p>
+<ul>
+<li><strong>Commit Changes:</strong></li>
+</ul>
+<p>Record your changes with a descriptive message: <code>git commit -m "Your commit message here"</code></p>
+<ul>
+<li><strong>Push Changes:</strong></li>
+</ul>
+<p>Send your committed changes to the remote repository (GitHub): <code>git push origin &lt;new_branch_name&gt;</code></p>
+<h3 id="skills-practiced">Skills Practiced</h3>
+<p>This exercise introduces you to:</p>
+<ul>
+<li>Cloning a repository (<code>git clone</code>)</li>
+<li>Creating a new branch (<code>git checkout -b</code>)</li>
+<li>Staging changes (<code>git add</code>)</li>
+<li>Committing changes (<code>git commit -m</code>)</li>
+<li>Pushing changes to a remote repository (<code>git push</code>)</li>
+</ul>
+<p>By practicing these commands, you'll start building a foundation for version control and collaboration using Git.</p></div>
             </div>
         </div>
 

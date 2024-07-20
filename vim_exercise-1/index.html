@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Vim exercise 1 - Zillona Org</title>
+        <title>Vim Exercise - Zillona Org</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -71,8 +71,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#using-the-vim-editor-in-linux" class="nav-link">Using the Vim Editor in Linux</a>
+            <li class="nav-item" data-level="1"><a href="#vim-exercise" class="nav-link">Vim Exercise</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#get-hands-on-with-vim" class="nav-link">Get hands on with VIM</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -80,7 +84,78 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="using-the-vim-editor-in-linux">Using the Vim Editor in Linux</h2>
+<h1 id="vim-exercise">Vim Exercise</h1>
+<h2 id="get-hands-on-with-vim">Get hands on with VIM</h2>
+<p>This exercise will guide you through basic VIM commands for editing text files.</p>
+<h3 id="task">Task</h3>
+<ul>
+<li><strong>Create a File:</strong></li>
+</ul>
+<p>Open a terminal and navigate to your desired directory. Create a new file named <code>practice.txt</code> using VIM: <code>vi practice.txt</code></p>
+<ul>
+<li><strong>Enter Insert Mode:</strong></li>
+</ul>
+<p>Press the <code>i</code> key to enter insert mode. Notice the <code>-- INSERT --</code> indicator at the bottom of the screen. Type a few sentences or lines of text.</p>
+<ul>
+<li><strong>Exit Insert Mode:</strong></li>
+</ul>
+<p>Press the <code>Esc</code> key to exit insert mode.</p>
+<ul>
+<li><strong>Navigation:</strong></li>
+</ul>
+<p>Use the arrow keys to move the cursor around the text. Try these commands for faster navigation:
+  * <code>h</code> (left), <code>j</code> (down), <code>k</code> (up), <code>l</code> (right)
+  * <code>w</code> (next word), <code>b</code> (previous word)
+  * <code>0</code> (beginning of line), <code>$</code> (end of line)</p>
+<ul>
+<li>
+<p><strong>Editing:</strong></p>
+</li>
+<li>
+<p><strong>Deleting:</strong></p>
+<ul>
+<li><code>x</code> deletes the character under the cursor.</li>
+<li><code>dw</code> deletes a word.</li>
+<li><code>dd</code> deletes an entire line.</li>
+</ul>
+</li>
+<li><strong>Copying/Pasting:</strong><ul>
+<li><code>yy</code> copies (yanks) a line.</li>
+<li><code>p</code> pastes the copied content below the current line.</li>
+</ul>
+</li>
+<li>
+<p><strong>Undo/Redo:</strong></p>
+<ul>
+<li><code>u</code> undoes the last action.</li>
+<li><code>Ctrl-r</code> redoes the last undone action.</li>
+</ul>
+</li>
+<li>
+<p><strong>Saving and Exiting:</strong></p>
+</li>
+<li>
+<p><strong>Saving:</strong></p>
+<ul>
+<li>Type <code>:w</code> and press Enter to save the changes.</li>
+</ul>
+</li>
+<li><strong>Exiting:</strong><ul>
+<li>Type <code>:q</code> and press Enter to quit VIM if you've saved changes.</li>
+<li>Type <code>:q!</code> and press Enter to quit without saving changes.</li>
+</ul>
+</li>
+</ul>
+<h3 id="skills-practiced">Skills Practiced</h3>
+<p>This exercise introduces you to:</p>
+<ul>
+<li>Opening and creating files with VIM</li>
+<li>Entering and exiting insert mode</li>
+<li>Basic navigation commands</li>
+<li>Essential editing commands (deleting, copying, pasting, undo/redo)</li>
+<li>Saving and exiting VIM</li>
+</ul>
+<p>By practicing these commands, you'll start building a foundation for efficient text editing in VIM.</p>
 <h3 id="official-resources">Official Resources</h3>
 <ul>
 <li><strong>Documentation:</strong></li>

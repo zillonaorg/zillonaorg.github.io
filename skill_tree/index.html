@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Skill Tree - Zillona Org</title>
+        <title>Skill Tree Progression - Zillona Org</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -34,6 +34,9 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
+                                <a href="../featured/" class="nav-link">Featured</a>
+                            </li>
+                            <li class="navitem">
                                 <a href="../orchestration/" class="nav-link">Container Orchestration</a>
                             </li>
                             <li class="navitem">
@@ -41,9 +44,6 @@
                             </li>
                             <li class="navitem">
                                 <a href="../dojo/" class="nav-link">Dojo</a>
-                            </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Skill Tree</a>
                             </li>
                         </ul>
 
@@ -53,16 +53,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../dojo/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -120,8 +110,8 @@ get a high-level idea of our skills roadmap. </p>
 <p>For details of our internal path see the skill tree below.</p>
 <h2 id="notes-for-contributors-to-this-document">Notes for Contributors to this document</h2>
 <ul>
-<li>Link useful resources for each skill</li>
-<li>Please vet 3rd party tutorials and prefer official tutorials where prudent</li>
+<li>Link useful resources for each skill below</li>
+<li>Regularly vet 3rd party tutorials and prefer official tutorials where prudent</li>
 <li>Create exercises linking to existing documentation for complex tasks</li>
 <li>Try to order links as follows<ol>
 <li>Official upstream project documentation</li>
@@ -146,7 +136,7 @@ get a high-level idea of our skills roadmap. </p>
 <li><a href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">Ubuntu tutorial</a></li>
 <li><a href="../vim_exercise-1/">Dojo Vim exercise #1</a></li>
 </ul>
-<p><strong>Basic git usage</strong></p>
+<p><strong>Basic Git usage</strong></p>
 <ul>
 <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">Official beginers guide</a></li>
 <li><a href="https://docs.github.com/en/get-started/using-git/about-git#github-and-the-command-line">GitHub command examples</a></li>
@@ -155,21 +145,22 @@ get a high-level idea of our skills roadmap. </p>
 <h2 id="initial-skills">Initial skills</h2>
 <p>Set up your development environment and gain confidence with the tools and 
 skills outlined in this section to get started and become involved with Zillona 
-Org projects.</p>
+Dojo projects.</p>
 <ul>
 <li>Install a Debian VM on your development workstation.</li>
-<li>Install cli tools and dependency packages (Vim, git, curl, etc)</li>
-<li>Vim ("Stateful" editing / editing modes) (( <code>:w</code> is <code>git commit</code>, <code>:q</code> is <code>git push</code> ))</li>
-<li>Create change branch from "dev" and edit Markdown README.md file in Welcome repo </li>
-<li>Add, commit, push and merge changes to dev and validate changes</li>
-<li>HTML editing</li>
-<li>Install nginx in the VM</li>
+<li>Install cli tools and dependency packages (vim, git, curl, etc)</li>
 <li>Bash scripting (Save install steps)</li>
+<li>Create branch from "develop" branch of this repo and edit documentation Markdown </li>
+<li>Add, commit, and push changes to your new branch</li>
+<li>Validate changes to repository and create merge request to develop branch</li>
+<li>Install nginx in the VM</li>
 <li>Configure nginx from the CLI</li>
 <li>Install Docker on the VM</li>
+<li>Pull nginx Docker container for local validation</li>
 </ul>
 <h2 id="core-skills">Core Skills</h2>
-<p>These are the most important and fundamental skills to develop as a newly initiated member of the Dojo.</p>
+<p>These are the most important and fundamental skills to develop as a newly 
+initiated member of the Dojo.</p>
 <p><strong>Linux</strong></p>
 <p>Building on basic Linux skills</p>
 <ul>
@@ -232,6 +223,10 @@ Refer to the <a href="https://roadmap.sh/devops">DevOps roadmap</a> to get your 
 <ul>
 <li><a href="https://nodejs.org/docs/latest/api/documentation.html">Official documentation</a></li>
 <li><a href="https://google.github.io/styleguide/jsguide.html">Google style guide</a></li>
+</ul>
+<p><strong>Java</strong></p>
+<ul>
+<li><a href="../java_troubleshooting/">Dojo Java Troubleshooting</a></li>
 </ul>
 <p><strong>Terraform</strong></p>
 <ul>

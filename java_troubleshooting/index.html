@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Comprehensive Guide to Observability in Java Applications - Zillona Org</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="..">Zillona Org</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../featured/" class="nav-link">Featured</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../orchestration/" class="nav-link">Container Orchestration</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../tabletech/" class="nav-link">TableTech</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../dojo/" class="nav-link">Dojo</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#comprehensive-guide-to-observability-in-java-applications" class="nav-link">Comprehensive Guide to Observability in Java Applications</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#memory-management-and-garbage-collection" class="nav-link">Memory Management and Garbage Collection</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#minor-gc-failures" class="nav-link">Minor GC Failures</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#major-gc-failures" class="nav-link">Major GC Failures</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#thread-management-and-concurrency" class="nav-link">Thread Management and Concurrency</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#thread-management-and-concurrency-failure" class="nav-link">Thread Management and Concurrency Failure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#application-performance-metrics" class="nav-link">Application Performance Metrics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#system-resource-utilization" class="nav-link">System Resource Utilization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#application-resilience" class="nav-link">Application Resilience</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="comprehensive-guide-to-observability-in-java-applications">Comprehensive Guide to Observability in Java Applications</h1>
+<p>In the world of Java application development and operations, understanding how a
+Java application is configured and operates is paramount for maintaining system
+health and performance. Observability in this aspect refers to the ability to
+measure and understand the internal state of an application through its external
+outputs, such as metrics, profiler captures and logs. For Java applications,
+effective observability involves a broad range of topics, including memory
+management, thread behavior, performance metrics, error tracking, and system
+resource usage. This guide attempts to provides a comprehensive overview of
+these topics to help you monitor and analyze Java applications effectively.</p>
+<h2 id="memory-management-and-garbage-collection">Memory Management and Garbage Collection</h2>
+<p><strong>Heap Memory</strong></p>
+<ul>
+<li>
+<p>Storage for Objects: The heap is where Java allocates memory for objects
+created during program execution. This includes both temporary objects and
+long-lived data.</p>
+</li>
+<li>
+<p>Dynamic Memory Allocation: Java applications rely on the heap for dynamic
+memory allocation, meaning objects are created and managed at runtime.</p>
+</li>
+<li>
+<p>Heap Size Configuration: Parameters such as -Xms (initial heap size at
+runtime) and -Xmx (maximum memory usage size for the heap).</p>
+</li>
+</ul>
+<p><strong>Garbage Collection (GC)</strong></p>
+<ul>
+<li>GC Metrics: Monitoring metrics such as GC pause times, execution times,
+frequency of GC events, and heap usage before and after GC. Currently,
+frequency, heap usage and execution times are availble in DataDog.</li>
+</ul>
+<p><strong>Memory Leaks</strong></p>
+<ul>
+<li>Detection Tools: Developers usually use tools like jProfiler to identify memory
+leaks and analyze heap dumps.</li>
+</ul>
+<p>What Happens with Threads When GC Fails</p>
+<h2 id="minor-gc-failures">Minor GC Failures</h2>
+<p><strong>Minor GC Overview</strong></p>
+<ul>
+<li>Frequency: It occurs more frequently than Major GC as it focuses on
+short-lived objects.</li>
+</ul>
+<p><strong>Thread Impact During Minor GC Failures</strong></p>
+<ul>
+<li>
+<p>Increased Pause Times: If minor GC fails to reclaim enough memory due
+to high allocation rates or fragmentation, the JVM (Java Virtual Machine)
+may experience longer pause times. Threads are paused during this
+process, leading to delays in handling requests and tasks which can cause
+requests and tasks to fail assuming they’re async/timeout based.</p>
+</li>
+<li>
+<p>Thread Interruption: Threads that are executing tasks requiring memory
+may be blocked or delayed while GC is in progress. This can lead to
+increased response times and reduced throughput.</p>
+</li>
+</ul>
+<h2 id="major-gc-failures">Major GC Failures</h2>
+<p><strong>Major GC Overview</strong></p>
+<ul>
+<li>
+<p>Scope: Major GC (also known as Full GC) deals with the Old Generation
+(Tenured space) and the entire heap. It is more comprehensive and
+involves cleaning up both Young and Old Generations.</p>
+</li>
+<li>
+<p>Frequency: It is less frequent but more resource-intensive compared to
+Minor GC.</p>
+</li>
+</ul>
+<p><strong>Thread Impact During Major GC Failures</strong></p>
+<ul>
+<li>
+<p>Extended Pause Times: If major GC fails to reclaim sufficient memory, it
+may result in extended pause times, where all application threads are
+stopped. This can severely impact the application's responsiveness and
+overall performance where it’s possible that the application could crash.</p>
+</li>
+<li>
+<p>Thread Contention: Long GC pauses can cause threads to wait for
+extended periods, leading to thread contention and potential bottlenecks.
+Threads that are waiting for memory to become available might cause
+delays in processing tasks or handling incoming requests.</p>
+</li>
+<li>
+<p>Application Freezes: Prolonged GC pauses may lead to application
+freezes or unresponsiveness, especially if the JVM cannot allocate the
+required memory despite continuous GC efforts.</p>
+</li>
+</ul>
+<p><strong>General Effects of GC Failures</strong></p>
+<ul>
+<li>
+<p>Increased CPU Usage: Frequent and prolonged GC cycles can lead to
+high CPU usage as the JVM spends more time performing garbage
+collection rather than executing application code.</p>
+</li>
+<li>
+<p>OutOfMemoryError: If GC fails to free up sufficient memory and the heap
+is exhausted, the JVM may throw an OutOfMemoryError resulting in a
+crash visible in the application logs. This error is indicative of impending
+application crashes and/or significant instability</p>
+</li>
+</ul>
+<h2 id="thread-management-and-concurrency">Thread Management and Concurrency</h2>
+<p><strong>Thread States and Lifecycle</strong></p>
+<ul>
+<li>Thread States: Understand the various thread states (e.g., RUNNABLE,
+WAITING, BLOCKED, TIMED_WAITING).</li>
+</ul>
+<p><strong>Thread Pools</strong></p>
+<ul>
+<li>
+<p>Configuration: Monitor thread pool settings, such as core pool size, maximum
+pool size, and queue capacity.</p>
+</li>
+<li>
+<p>Metrics: Track metrics like active threads, queue length, and task completion
+rates.</p>
+</li>
+</ul>
+<p><strong>Concurrency Issues</strong></p>
+<ul>
+<li>
+<p>Deadlocks: Deadlocks occur when threads are waiting indefinitely for
+resources held by each other.</p>
+</li>
+<li>
+<p>Starvation and Livelocks: Threads are either perpetually waiting or
+continuously changing states without making progress.
+Thread Management and Concurrency Failure definitions and symptoms</p>
+</li>
+</ul>
+<h2 id="thread-management-and-concurrency-failure">Thread Management and Concurrency Failure</h2>
+<p><strong>Deadlocks</strong></p>
+<ul>
+<li>
+<p>Definition: A deadlock occurs when two or more threads are each waiting
+for the other to release a resource, creating a cycle of dependencies that
+prevents any of them from proceeding.</p>
+</li>
+<li>
+<p>Symptoms: Threads become stuck and do not make any progress, leading
+to system stalls or unresponsiveness.</p>
+</li>
+</ul>
+<p><strong>Starvation</strong></p>
+<ul>
+<li>
+<p>Definition: Starvation happens when a thread is perpetually denied the
+resources it needs to proceed because other threads are continually being
+given priority.</p>
+</li>
+<li>
+<p>Symptoms: The affected thread is left unable to execute, causing delays
+or failures in task completion.</p>
+</li>
+</ul>
+<p><strong>Livelocks</strong></p>
+<ul>
+<li>
+<p>Definition: A livelock occurs when threads keep changing states in
+response to each other but never make actual progress. Unlike deadlock,
+threads are active but still unable to complete their tasks.</p>
+</li>
+<li>
+<p>Symptoms: Threads keep running and interacting but fail to make
+progress, leading to inefficiency and potential performance issues.</p>
+</li>
+</ul>
+<p><strong>Race Conditions</strong></p>
+<ul>
+<li>
+<p>Definition: A race condition happens when multiple threads access shared
+data concurrently, and the final outcome depends on the unpredictable
+order of access.</p>
+</li>
+<li>
+<p>Symptoms: Erratic behavior or incorrect results due to unsynchronized
+access to shared resources.</p>
+</li>
+</ul>
+<p><strong>Thread Contention</strong></p>
+<ul>
+<li>
+<p>Definition: Thread contention arises when multiple threads compete for
+the same resources, leading to delays and reduced performance.</p>
+</li>
+<li>
+<p>Symptoms: Increased context switching, longer execution times, and
+reduced overall throughput.</p>
+</li>
+</ul>
+<p><strong>Resource Leaks</strong></p>
+<ul>
+<li>
+<p>Definition: Resource leaks occur when threads fail to release resources
+(like locks, file handles, or memory) properly, causing resources to be held
+longer than necessary.</p>
+</li>
+<li>
+<p>Symptoms: Resource exhaustion/overconsumption, leading to degraded
+performance or system crashes.</p>
+</li>
+</ul>
+<h2 id="application-performance-metrics">Application Performance Metrics</h2>
+<p><strong>Response Time</strong></p>
+<ul>
+<li>Latency: Measures latency for various types of requests (e.g., HTTP requests,
+database queries).</li>
+</ul>
+<p><strong>Throughput and Tolerance</strong></p>
+<ul>
+<li>
+<p>Request Rate: Tracks the number of requests processed by the appliation in a
+given unit of time (usually millisecond).</p>
+</li>
+<li>
+<p>Load Testing: Conduct load testing to understand application behavior under
+stress and high traffic.</p>
+</li>
+</ul>
+<p><strong>Error Rates and types</strong></p>
+<ul>
+<li>
+<p>Exception Tracking: Monitor the frequency and types of exceptions occurring
+in the application.</p>
+</li>
+<li>
+<p>Types:</p>
+<ol>
+<li>Null Pointer Exception (NPE) - 
+Cause: Attempting to use an object reference that has not been initialized (i.e.,it is null ).</li>
+<li>IllegalArgumentException - 
+Cause: Passing an illegal or inappropriate argument to a method.</li>
+<li>IOException - 
+Cause: Errors related to input and output operations, such as file reading/writing issues.</li>
+</ol>
+</li>
+</ul>
+<p>Note: There are many many more but these are the few I have
+notes/documentation/experience with.</p>
+<h2 id="system-resource-utilization">System Resource Utilization</h2>
+<p><strong>CPU Usage</strong></p>
+<ul>
+<li>
+<p>Profiling: Developers use profiling tools like jProfiler to measure CPU usage
+and identify hotspots.</p>
+</li>
+<li>
+<p>Resource Contention: This is where multiple threads or processes compete
+for resources.</p>
+</li>
+</ul>
+<p><strong>Disk I/O</strong></p>
+<ul>
+<li>
+<p>I/O Metrics: Track read and write operations, disk usage, and file system
+performance.</p>
+</li>
+<li>
+<p>Database I/O: Monitor database interaction patterns and optimize queries to
+reduce impact on I/O load.</p>
+</li>
+</ul>
+<p><strong>Network Traffic</strong></p>
+<ul>
+<li>
+<p>Traffic Analysis: Measures inbound and outbound network traffic and latency.</p>
+</li>
+<li>
+<p>Network Latency: Monitor for network latency and bandwidth usage,
+especially for applications with significant network communication.</p>
+</li>
+</ul>
+<p><strong>Logging</strong></p>
+<ul>
+<li>
+<p>Log Levels: Developers set different logging levels (verbosity from highest</p>
+</li>
+<li>
+<p>lowest: e.g., TRACE, DEBUG, INFO, WARN, ERROR) to capture the right amount
+of information depending on the importance of the actions being taken without
+filling up log storage needlessly. This helps in troubleshooting and pinpointing
+issues related to the application's functionality.</p>
+</li>
+</ul>
+<h2 id="application-resilience">Application Resilience</h2>
+<p><strong>Fault Tolerance</strong></p>
+<ul>
+<li>Retries and Timeouts: A developer will configure retries and timeouts for
+failures and ensure they are handled gracefully. Typically these retries and
+timeouts are printed in the application logs.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

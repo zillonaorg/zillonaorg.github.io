@@ -127,14 +127,30 @@ branch.</p>
 <pre><code>git clone https://github.com/zillonaorg/Welcome.git
 cd ./Welcome/
 git checkout develop
+git pull
 git checkout -b YOUR_BRANCH_NAME
 </code></pre>
 <p><strong>Edit the Markdown Files with Your Changes</strong></p>
+<p>Open another shell/terminal and change directory into your local git clone
+again. From the root of your local repo where you find the mkdocs.yml file, run
+the MkDocs server to render your Markdown files as HTML locally. </p>
+<pre><code>cd Welcome
+mkdocs serve
+</code></pre>
+<p>You <em>may</em> have to prepend your mkdocs command with <code>python -m</code> as follows </p>
+<pre><code>python -m mkdocks serve
+</code></pre>
+<p>The MkDocs server will continue to run in the foreground of the terminal
+outputting logs as you make your changes. Return to your other terminal to
+continue with your local development.</p>
+<p>While the server is running you can view your changes, rendered as HTML code in 
+real time by visiting <a href="http://localhost:8000/">http://localhost:8000/</a> in your 
+browser.</p>
 <p>Please reference this 
 <a href="https://www.markdownguide.org/cheat-sheet/">cheat sheet</a> from 
 <a href="https://www.makeareadme.com/">makeareadme.com</a> and the official GitHub Markdown
 <a href="https://google.github.io/styleguide/docguide/style.html">style guide</a> when 
-editing.</p>
+editing the Markdown files.</p>
 <p><strong>Share Your Changes</strong></p>
 <p>To contribute back to the documentation project and share your changes you will
 need to use git commands to add, commit and push your local changes back to
@@ -145,6 +161,26 @@ git push --set-upstream origin YOUR_BRANCH_NAME
 </code></pre>
 <p><strong>Create a Pull Request</strong></p>
 <p>Merge your branch back into the develop branch.</p>
+<p><strong>Publish Your Changes Publicly</strong></p>
+<p>Once your changes along with all other changes to the develop branch have been
+validated a pull request against the main branch will be created to deploy a 
+"release" of the public <a href="https://zillonaorg.github.io">documentation website</a>. </p>
+<p>Once the develop branch has been merged to main we can create the HTML website
+from the main branch using MkDocs.</p>
+<p>Once again the mkdocs command must be ran from the root of your git repository.</p>
+<pre><code>mkdocs build -s
+</code></pre>
+<p>Again, you <em>may</em> have to prepend your mkdocs command with <code>python -m</code> as follows </p>
+<pre><code>python -m mkdocks build -s
+</code></pre>
+<p>MkDocs will convert the Markdown files inside the /docs directory into an MkDocs
+HTML website stored in a new /site directory created by the build process.</p>
+<p>The resulting website "artifact" is ready for deployment to any webserver. We
+host our documentation website in GitHub at 
+<a href="https://zillonaorg.github.io/">https://zillonaorg.github.io</a>. </p>
+<p>Deployment is achieved by pushing the website artifact changes to 
+<a href="https://github.com/zillonaorg/zillonaorg.github.io">github.com/zillonaorg/zillonaorg.github.io</a> 
+and merging to the main branch.</p>
 <h2 id="install-nginx">Install Nginx</h2>
 <h2 id="install-docker-engine">Install Docker Engine</h2></div>
             </div>
